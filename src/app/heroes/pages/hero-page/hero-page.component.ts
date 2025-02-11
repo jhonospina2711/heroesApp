@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { HeroesService } from '../../services/heroes.services';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap } from 'rxjs';
+import { delay, switchMap } from 'rxjs';
 import { Hero } from '../../interfaces/hero.interface';
 
 @Component({
@@ -30,11 +30,11 @@ public hero?: Hero
 
       this.hero = hero;
       console.log({hero});
-
-
       return;
-
     })
   }
 
+  goBack(): void {
+    this.router.navigateByUrl('heroes/list')
+  }
 }
